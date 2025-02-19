@@ -5,6 +5,12 @@
 */
 
 function isAnagram(str1, str2) {
+  if(str1.lenght!==str2.lenght) return false;
+  const normalize=(str)=>str.toLowerCase().split('').sort().join('');
+  
+  
+  return normalize(str1)=== normalize(str2);
+  
 // const n1=str1.toLowerCase().length;
 // const n2=str2.toLowerCase().length;
 // if(n1!=n2)
@@ -29,11 +35,6 @@ function isAnagram(str1, str2) {
 // return normalize(str1) === normalize(str2);
 
 
-if(str1.lenght!==str2.lenght) return false;
-const normalize=(str)=>str.toLowerCase().split('').sort().join('');
-
-
-return normalize(str1)=== normalize(str2);
 }
 // isAnagram("spar","rasp")
 

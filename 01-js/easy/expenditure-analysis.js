@@ -16,40 +16,56 @@
 
 /**
                                                                           using objects
- */
-function calculateTotalSpentByCategory(transactions) {
-  const categoryTotals = {}; // Object to store total spent per category
+                                                                          */
+//   function calculateTotalSpentByCategory(transactions) {
+//   const categoryTotals = {}; // Object to store total spent per category
 
-  for (const transaction of transactions) {
-      const { category, price } = transaction;
+//   for (const transaction of transactions) {
+//     const { category, price } = transaction;
+    
+//     if (categoryTotals[category]) {
+//       categoryTotals[category] += price; // Add to existing total
+//     } else {
+//       categoryTotals[category] = price; // Initialize new category total
+//   }
+// }
 
-      if (categoryTotals[category]) {
-          categoryTotals[category] += price; // Add to existing total
-      } else {
-          categoryTotals[category] = price; // Initialize new category total
-      }
+// // Convert the object into an array of { category, totalSpent } format
+// return Object.keys(categoryTotals).map(category => ({
+//   category,
+//   totalSpent: categoryTotals[category]
+// }));
+// }
+
+
+const calculateTotalSpentByCategory=(transactions)=>{
+  const  categoryTotals={};
+  for(const transaction of transactions){
+    const {category,price}=transaction;
+    if(categoryTotals[category]){
+      categoryTotals[category]+=price;
+    }else{
+      categoryTotals[category]=price;
+    }
   }
-
-  // Convert the object into an array of { category, totalSpent } format
-  return Object.keys(categoryTotals).map(category => ({
-      category,
-      totalSpent: categoryTotals[category]
-  }));
+return Object.keys(categoryTotals).map(category=>({
+                                                              category,
+                                                              totalSpent:categoryTotals[category]
+                                                            }));
 }
-
 
 
 /**
                                                                        using the map 
  */
 // function calculateTotalSpentByCategory(transactions) {
-//   const categoryMap = new Map();
+  // const categoryMap = new Map();
 
-//   for (const { category, price } of transactions) {
-//       categoryMap.set(category, (categoryMap.get(category) || 0) + price);
-//   }
+  // for (const { category, price } of transactions) {
+  //     categoryMap.set(category, (categoryMap.get(category) || 0) + price);
+  // }
 
-//   return Array.from(categoryMap, ([category, totalSpent]) => ({ category, totalSpent }));
+  // return Array.from(categoryMap, ([category, totalSpent]) => ({ category, totalSpent }));
 // }
 
 

@@ -16,6 +16,143 @@
   Once you've implemented the logic, test your code by running
 */
 
-class Calculator {}
+class Calculator {
+constructor(){
+    this.result=0;
+    
+}
+add(num){
+    this.result+=num;
+    return this;
+}
+subtract(num){
+    this.result-=num;
+    return this;
+}
+multiply(num){
+    this.result*=num;
+    return this;
+}
+divide(num){
+if(num===0) throw new Error("num is zero");
+this.result/=num;
+return this;
+
+}
+clear(){
+    this.result=0;
+    return this;
+}
+getResult(){
+    return this.result;
+}
+calculate(expression){
+  try{
+// removing space and validating  invalid charactes expression
+    expression=expression.replace(/\s+/g,'');
+    if(/[^0-9+\-*/().]/.test(expression)){
+      throw  new Error("invalid characters")
+    }
+
+// divided by zero
+if(/\/0(?!\d)/.test(expression))
+{
+    throw new Error("cant divid eby zero")
+}
+
+// paranthesis balancing 
+let stack=[];
+for(let char of expression){
+    if(char==='(') stack.push(char);
+    if(char===')'){
+            if(!stack.length){
+                throw new Error("imbalance paranthesis")
+            }
+            stack.pop();
+            }
+            
+                          }
+// if input is in the form of expression the ths function will evaluate anf c=by creating the new anomonous function 
+    this.result = new Function(`return ${expression}`)();
+    return this.result; 
+}
+catch(error){
+throw new Error("cant do this man");
+}
+}
+}
+/**
+ * 
+
+class Calculator {
+    constructor() {
+      this.result = 0;
+  }
+
+  add(num) {
+    this.result += num;
+    return this;
+  }
+
+  subtract(num) {
+      this.result -= num;
+      return this;
+  }
+
+  multiply(num) {
+      this.result *= num;
+      return this;
+    }
+
+  divide(num) {
+      if (num === 0) throw new Error("Cannot divide by zero");
+      this.result /= num;
+      return this;
+    }
+
+  clear() {
+      this.result = 0;
+      return this;
+  }
+  
+  getResult() {
+    return this.result;
+  }
+*/
+  
+//   calculate(expression) {
+//     try {
+//         // Remove spaces and validate expression
+//         expression = expression.replace(/\s+/g, '');
+//         if (/[^0-9+\-*/().]/.test(expression)) {
+//             throw new Error("Invalid characters in expression");
+//         }
+        
+//         // Check for division by zero
+//         if (/\/0(?!\d)/.test(expression)) {
+//             throw new Error("Cannot divide by zero");
+//           }
+          
+//           // Validate parentheses balance
+//           let stack = [];
+//           for (let char of expression) {
+//               if (char === '(') stack.push(char);
+//               if (char === ')') {
+//                   if (!stack.length) throw new Error("Mismatched parentheses");
+//                   stack.pop();
+//                 }
+//             }
+//             if (stack.length) throw new Error("Mismatched parentheses");
+            
+//           // Evaluate expression securely
+//           this.result = new Function(`return ${expression}`)();
+//           return this.result;
+//       } catch (error) {
+//           throw new Error(error.message || "Invalid mathematical expression");
+//       }
+//     }
+// }
+// 
+
 
 module.exports = Calculator;

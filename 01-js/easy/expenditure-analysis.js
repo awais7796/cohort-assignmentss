@@ -42,15 +42,15 @@ function calculateTotalSpentByCategory(transactions) {
 /**
                                                                        using the map 
  */
-function calculateTotalSpentByCategory(transactions) {
-  const categoryMap = new Map();
+// function calculateTotalSpentByCategory(transactions) {
+//   const categoryMap = new Map();
 
-  for (const { category, price } of transactions) {
-      categoryMap.set(category, (categoryMap.get(category) || 0) + price);
-  }
+//   for (const { category, price } of transactions) {
+//       categoryMap.set(category, (categoryMap.get(category) || 0) + price);
+//   }
 
-  return Array.from(categoryMap, ([category, totalSpent]) => ({ category, totalSpent }));
-}
+//   return Array.from(categoryMap, ([category, totalSpent]) => ({ category, totalSpent }));
+// }
 
 
 

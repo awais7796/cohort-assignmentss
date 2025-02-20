@@ -1,2 +1,1 @@
-hello from js this
- is writtem via fsthis is writtem via fs
+this is written via fsthis is writtem via fs

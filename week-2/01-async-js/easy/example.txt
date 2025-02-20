@@ -1,0 +1,2 @@
+hello from js this
+ is writtem via fsthis is writtem via fs
